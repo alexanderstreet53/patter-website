@@ -39,181 +39,76 @@ const features = [
   },
 ];
 
-const cities = [
-  "Paris",
-  "Tokyo",
-  "Barcelona",
-  "London",
-  "Copenhagen",
-  "Venice",
-  "Oslo",
-  "Porto",
-  "Lisbon",
-];
-
 export default function Home() {
   return (
-    <main
-      className="min-h-screen"
-      style={{ backgroundColor: "var(--background)" }}
-    >
-      {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-5 max-w-5xl mx-auto">
-        <span
-          className="text-xl font-bold tracking-tight"
-          style={{ color: "var(--primary)" }}
-        >
+    <main className="page">
+      <nav className="site-nav container">
+        <span className="brand-mark">
           patter.
         </span>
-        <Link
-          href="/privacy"
-          className="text-sm font-medium opacity-50 hover:opacity-100 transition-opacity"
-          style={{ color: "var(--primary)" }}
-        >
+        <Link href="/privacy" className="nav-link">
           Privacy
         </Link>
       </nav>
 
-      {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 pt-20 pb-32 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-10"
-          style={{
-            backgroundColor: "rgba(27, 58, 47, 0.07)",
-            color: "var(--primary)",
-          }}
-        >
-          <span
-            className="w-2 h-2 rounded-full animate-pulse"
-            style={{ backgroundColor: "var(--accent)" }}
-          />
+      <section className="hero container">
+        <div className="coming-badge">
+          <span className="badge-dot" />
           Coming soon
         </div>
 
-        <h1
-          className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-none mb-6"
-          style={{ color: "var(--primary)" }}
-        >
-          patter<span style={{ color: "var(--accent)" }}>.</span>
+        <h1 className="hero-title">
+          patter<span className="accent-dot">.</span>
         </h1>
 
-        <p
-          className="text-xl sm:text-2xl font-light max-w-xl mx-auto mb-4 leading-relaxed"
-          style={{ color: "var(--primary)", opacity: 0.75 }}
-        >
-          Places your friends actually love.
+        <p className="hero-subtitle">Places your friends actually love.</p>
+
+        <p className="hero-copy">
+          A private social app for discovering restaurants, bars, cafés, activities and hidden
+          gems — recommended by the people you trust most.
         </p>
 
-        <p
-          className="text-base max-w-lg mx-auto leading-relaxed"
-          style={{ color: "var(--muted)" }}
-        >
-          A private social app for discovering restaurants, bars, cafés,
-          activities and hidden gems — recommended by the people you trust most.
-        </p>
-
-        <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="email-row">
           <input
             type="email"
             placeholder="your@email.com"
-            className="w-full sm:w-72 px-5 py-3.5 rounded-2xl text-sm border outline-none focus:ring-2 transition"
-            style={{
-              backgroundColor: "white",
-              borderColor: "rgba(27,58,47,0.15)",
-              color: "var(--primary)",
-              fontFamily: "inherit",
-            }}
+            className="email-input"
           />
-          <button
-            className="w-full sm:w-auto px-7 py-3.5 rounded-2xl text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
-            style={{
-              backgroundColor: "var(--primary)",
-              color: "var(--background)",
-              fontFamily: "inherit",
-            }}
-          >
-            Notify me
-          </button>
+          <button className="button-primary">Notify me</button>
         </div>
-        <p className="mt-3 text-xs" style={{ color: "var(--muted)" }}>
+        <p className="helper-text">
           No spam. We&apos;ll let you know when we launch.
         </p>
       </section>
 
-      {/* Divider */}
-      <div
-        className="max-w-5xl mx-auto px-6"
-        style={{ borderTop: "1px solid rgba(27,58,47,0.1)" }}
-      />
+      <div className="section-divider container" />
 
-      {/* Features */}
-      <section className="max-w-5xl mx-auto px-6 py-24">
-        <h2
-          className="text-3xl font-bold tracking-tight mb-3"
-          style={{ color: "var(--primary)" }}
-        >
+      <section className="section container">
+        <h2 className="section-title">
           Everything you need to discover great places.
         </h2>
-        <p className="text-base mb-14" style={{ color: "var(--muted)" }}>
+        <p className="section-copy">
           Built around trust, not algorithms.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="feature-grid">
           {features.map((f) => (
-            <div
-              key={f.title}
-              className="p-7 rounded-3xl"
-              style={{ backgroundColor: "rgba(27,58,47,0.05)" }}
-            >
-              <div
-                className="text-2xl mb-4"
-                style={{ color: "var(--accent)" }}
-              >
-                {f.icon}
-              </div>
-              <h3
-                className="text-base font-semibold mb-2"
-                style={{ color: "var(--primary)" }}
-              >
+            <div key={f.title} className="feature-card">
+              <div className="feature-icon">{f.icon}</div>
+              <h3 className="feature-title">
                 {f.title}
               </h3>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
-                {f.description}
-              </p>
+              <p className="feature-text">{f.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Cities strip */}
-      <section
-        className="py-10 overflow-hidden"
-        style={{ backgroundColor: "var(--primary)" }}
-      >
-        <div className="flex gap-6 animate-marquee whitespace-nowrap">
-          {[...cities, ...cities, ...cities].map((city, i) => (
-            <span
-              key={i}
-              className="text-sm font-medium tracking-widest uppercase flex-shrink-0"
-              style={{ color: "rgba(250,247,242,0.5)" }}
-            >
-              {city}
-              <span className="ml-6" style={{ color: "var(--accent)" }}>
-                ✦
-              </span>
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="max-w-5xl mx-auto px-6 py-24">
-        <h2
-          className="text-3xl font-bold tracking-tight mb-14"
-          style={{ color: "var(--primary)" }}
-        >
+      <section className="section container section-top-border">
+        <h2 className="section-title">
           How it works.
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="steps-grid">
           {[
             {
               step: "01",
@@ -231,100 +126,43 @@ export default function Home() {
               body: "Add a place, give it a star rating, and leave an insider tip. Help your friends find what you already know.",
             },
           ].map((item) => (
-            <div key={item.step} className="flex flex-col gap-3">
-              <span
-                className="text-4xl font-bold tracking-tighter"
-                style={{ color: "rgba(27,58,47,0.12)" }}
-              >
-                {item.step}
-              </span>
-              <h3
-                className="text-lg font-semibold"
-                style={{ color: "var(--primary)" }}
-              >
-                {item.title}
-              </h3>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: "var(--muted)" }}
-              >
-                {item.body}
-              </p>
+            <div key={item.step} className="step-card">
+              <span className="step-number">{item.step}</span>
+              <h3 className="step-title">{item.title}</h3>
+              <p className="step-text">{item.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="mx-6 mb-16 rounded-3xl py-20 px-8 text-center"
-        style={{ backgroundColor: "var(--primary)" }}
-      >
-        <h2
-          className="text-3xl sm:text-4xl font-bold tracking-tight mb-4"
-          style={{ color: "var(--background)" }}
-        >
+      <section className="cta-card container">
+        <h2 className="cta-title">
           Be the first to know.
         </h2>
-        <p
-          className="text-base mb-10 max-w-md mx-auto leading-relaxed"
-          style={{ color: "rgba(250,247,242,0.65)" }}
-        >
-          patter. is launching soon. Drop your email and we&apos;ll reach out
-          the moment doors open.
+        <p className="cta-copy">
+          patter. is launching soon. Drop your email and we&apos;ll reach out the moment doors open.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-sm mx-auto">
+        <div className="email-row email-row-compact">
           <input
             type="email"
             placeholder="your@email.com"
-            className="w-full px-5 py-3.5 rounded-2xl text-sm border-none outline-none focus:ring-2 transition"
-            style={{
-              backgroundColor: "rgba(250,247,242,0.12)",
-              color: "var(--background)",
-              fontFamily: "inherit",
-            }}
+            className="email-input email-input-dark"
           />
-          <button
-            className="w-full sm:w-auto flex-shrink-0 px-7 py-3.5 rounded-2xl text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
-            style={{
-              backgroundColor: "var(--accent)",
-              color: "var(--primary)",
-              fontFamily: "inherit",
-            }}
-          >
-            Notify me
-          </button>
+          <button className="button-accent">Notify me</button>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span
-          className="text-lg font-bold tracking-tight"
-          style={{ color: "var(--primary)" }}
-        >
+      <footer className="site-footer container">
+        <span className="brand-mark brand-mark-small">
           patter.
         </span>
-        <div className="flex items-center gap-6 text-sm" style={{ color: "var(--muted)" }}>
-          <Link
-            href="/privacy"
-            className="hover:opacity-100 opacity-70 transition-opacity"
-          >
+        <div className="footer-links">
+          <Link href="/privacy" className="nav-link nav-link-footer">
             Privacy Policy
           </Link>
           <span>© {new Date().getFullYear()} patter.</span>
         </div>
       </footer>
-
-      <style jsx global>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
-        }
-        .animate-marquee {
-          animation: marquee 20s linear infinite;
-        }
-      `}</style>
     </main>
   );
 }

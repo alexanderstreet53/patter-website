@@ -95,44 +95,21 @@ function renderBody(text: string) {
 
 export default function PrivacyPage() {
   return (
-    <main
-      className="min-h-screen"
-      style={{ backgroundColor: "var(--background)" }}
-    >
-      {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-5 max-w-3xl mx-auto">
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-tight"
-          style={{ color: "var(--primary)" }}
-        >
+    <main className="page">
+      <nav className="site-nav narrow-container">
+        <Link href="/" className="brand-mark">
           patter.
         </Link>
-        <Link
-          href="/"
-          className="text-sm font-medium opacity-50 hover:opacity-100 transition-opacity"
-          style={{ color: "var(--primary)" }}
-        >
+        <Link href="/" className="nav-link">
           ← Back
         </Link>
       </nav>
 
-      <article className="max-w-3xl mx-auto px-6 pt-10 pb-28">
-        {/* Header */}
-        <div className="mb-14">
-          <h1
-            className="text-4xl sm:text-5xl font-bold tracking-tight mb-4"
-            style={{ color: "var(--primary)" }}
-          >
-            Privacy Policy
-          </h1>
-          <p className="text-sm" style={{ color: "var(--muted)" }}>
-            Last updated: 15 March 2026
-          </p>
-          <p
-            className="mt-6 text-base leading-relaxed"
-            style={{ color: "var(--muted)" }}
-          >
+      <article className="privacy-article narrow-container">
+        <div className="privacy-header">
+          <h1 className="privacy-title">Privacy Policy</h1>
+          <p className="privacy-date">Last updated: 15 March 2026</p>
+          <p className="privacy-intro">
             patter. (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is
             committed to protecting your privacy. This policy explains what
             personal data we collect, why we collect it, and how we use and
@@ -140,33 +117,16 @@ export default function PrivacyPage() {
           </p>
         </div>
 
-        {/* Divider */}
-        <div
-          className="mb-14"
-          style={{ borderTop: "1px solid rgba(27,58,47,0.1)" }}
-        />
+        <div className="section-divider narrow-divider" />
 
-        {/* Sections */}
-        <div className="flex flex-col gap-12">
+        <div className="privacy-sections">
           {sections.map((section) => (
-            <section key={section.title}>
-              <h2
-                className="text-xl font-semibold mb-5"
-                style={{ color: "var(--primary)" }}
-              >
-                {section.title}
-              </h2>
-              <ul className="flex flex-col gap-3">
+            <section key={section.title} className="privacy-section">
+              <h2 className="privacy-section-title">{section.title}</h2>
+              <ul className="privacy-list">
                 {section.body.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex gap-3 text-sm leading-relaxed"
-                    style={{ color: "var(--muted)" }}
-                  >
-                    <span
-                      className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: "var(--accent)" }}
-                    />
+                  <li key={i} className="privacy-item">
+                    <span className="privacy-dot" />
                     <span>{renderBody(item)}</span>
                   </li>
                 ))}
@@ -175,20 +135,12 @@ export default function PrivacyPage() {
           ))}
         </div>
 
-        {/* Footer note */}
-        <div
-          className="mt-16 p-7 rounded-3xl"
-          style={{ backgroundColor: "rgba(27,58,47,0.05)" }}
-        >
-          <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
+        <div className="privacy-note">
+          <p className="privacy-note-text">
             By using patter., you agree to this Privacy Policy. If you do not
             agree, please do not use the app or website. For questions, reach
             us at{" "}
-            <a
-              href="mailto:privacy@patter.app"
-              className="underline"
-              style={{ color: "var(--primary)" }}
-            >
+            <a href="mailto:privacy@patter.app" className="privacy-link">
               privacy@patter.app
             </a>
             .
@@ -196,18 +148,11 @@ export default function PrivacyPage() {
         </div>
       </article>
 
-      {/* Footer */}
-      <footer className="max-w-3xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4"
-        style={{ borderTop: "1px solid rgba(27,58,47,0.08)" }}
-      >
-        <Link
-          href="/"
-          className="text-lg font-bold tracking-tight"
-          style={{ color: "var(--primary)" }}
-        >
+      <footer className="site-footer narrow-container site-footer-bordered">
+        <Link href="/" className="brand-mark brand-mark-small">
           patter.
         </Link>
-        <span className="text-sm" style={{ color: "var(--muted)" }}>
+        <span className="footer-links">
           © {new Date().getFullYear()} patter.
         </span>
       </footer>
