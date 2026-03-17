@@ -1,4 +1,7 @@
+'use client';
+
 import Link from "next/link";
+import { useState } from "react";
 
 const features = [
   {
@@ -39,6 +42,64 @@ const features = [
   },
 ];
 
+function NotifyForm({ dark = false }: { dark?: boolean }) {
+  const [email, setEmail] = useState('');
+  const [state, setState] = useState<'idle' | 'loading' | 'success' | 'duplicate' | 'error'>('idle');
+
+  async function handleSubmit() {
+    if (!email) return;
+    setState('loading');
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (!res.ok) { setState('error'); return; }
+      setState(data.duplicate ? 'duplicate' : 'success');
+    } catch {
+      setState('error');
+    }
+  }
+
+  if (state === 'success') {
+    return <p className="helper-text" style={{ marginTop: 40, fontSize: '1rem' }}>🎉 You&apos;re on the list — we&apos;ll be in touch!</p>;
+  }
+  if (state === 'duplicate') {
+    return <p className="helper-text" style={{ marginTop: 40, fontSize: '1rem' }}>Already on the list — we&apos;ll let you know when we launch.</p>;
+  }
+
+  return (
+    <>
+      <div className={`email-row${dark ? ' email-row-compact' : ''}`}>
+        <input
+          type="email"
+          placeholder="your@email.com"
+          className={`email-input${dark ? ' email-input-dark' : ''}`}
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && handleSubmit()}
+          disabled={state === 'loading'}
+        />
+        <button
+          className={dark ? 'button-accent' : 'button-primary'}
+          onClick={handleSubmit}
+          disabled={state === 'loading'}
+        >
+          {state === 'loading' ? 'Saving…' : 'Notify me'}
+        </button>
+      </div>
+      {state === 'error' && (
+        <p className="helper-text" style={{ color: '#EF4444' }}>Something went wrong — please try again.</p>
+      )}
+      {!dark && state !== 'error' && (
+        <p className="helper-text">No spam. We&apos;ll let you know when we launch.</p>
+      )}
+    </>
+  );
+}
+
 export default function Home() {
   return (
     <main className="page">
@@ -68,17 +129,7 @@ export default function Home() {
           gems — recommended by the people you trust most.
         </p>
 
-        <div className="email-row">
-          <input
-            type="email"
-            placeholder="your@email.com"
-            className="email-input"
-          />
-          <button className="button-primary">Notify me</button>
-        </div>
-        <p className="helper-text">
-          No spam. We&apos;ll let you know when we launch.
-        </p>
+        <NotifyForm />
       </section>
 
       <div className="section-divider container" />
@@ -142,14 +193,7 @@ export default function Home() {
         <p className="cta-copy">
           patter. is launching soon. Drop your email and we&apos;ll reach out the moment doors open.
         </p>
-        <div className="email-row email-row-compact">
-          <input
-            type="email"
-            placeholder="your@email.com"
-            className="email-input email-input-dark"
-          />
-          <button className="button-accent">Notify me</button>
-        </div>
+        <NotifyForm dark />
       </section>
 
       <footer className="site-footer container">

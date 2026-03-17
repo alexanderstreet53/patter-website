@@ -1,12 +1,12 @@
 :root {
-  --primary: #1B3A2F;
-  --background: #FAF7F2;
-  --accent: #E8A838;
-  --text: #1B3A2F;
-  --muted: #6B7280;
-  --line: rgba(27, 58, 47, 0.1);
-  --card: rgba(27, 58, 47, 0.05);
-  --card-dark: rgba(250, 247, 242, 0.12);
+  --primary: #0D6B5E;
+  --background: #F8FAFC;
+  --accent: #FF6B35;
+  --text: #0F172A;
+  --muted: #94A3B8;
+  --line: rgba(13, 107, 94, 0.1);
+  --card: rgba(13, 107, 94, 0.05);
+  --card-dark: rgba(248, 250, 252, 0.12);
 }
 
 * {
@@ -68,7 +68,7 @@ input {
 }
 
 .site-footer-bordered {
-  border-top: 1px solid rgba(27, 58, 47, 0.08);
+  border-top: 1px solid rgba(13, 107, 94, 0.08);
 }
 
 .brand-mark {
@@ -117,7 +117,7 @@ input {
   padding: 10px 18px;
   margin-bottom: 40px;
   border-radius: 999px;
-  background: rgba(27, 58, 47, 0.07);
+  background: rgba(13, 107, 94, 0.07);
   color: var(--primary);
   font-size: 0.95rem;
   font-weight: 500;
@@ -146,7 +146,7 @@ input {
 .hero-subtitle {
   max-width: 680px;
   margin: 0 auto 16px;
-  color: rgba(27, 58, 47, 0.75);
+  color: rgba(15, 23, 42, 0.65);
   font-size: clamp(1.35rem, 3vw, 2rem);
   line-height: 1.35;
 }
@@ -185,7 +185,7 @@ input {
 .email-input {
   width: min(100%, 288px);
   padding: 14px 20px;
-  border: 1px solid rgba(27, 58, 47, 0.15);
+  border: 1px solid rgba(13, 107, 94, 0.15);
   border-radius: 18px;
   outline: none;
   background: #fff;
@@ -193,7 +193,7 @@ input {
 }
 
 .email-input::placeholder {
-  color: rgba(107, 114, 128, 0.9);
+  color: rgba(148, 163, 184, 0.9);
 }
 
 .email-input-dark {
@@ -203,7 +203,7 @@ input {
 }
 
 .email-input-dark::placeholder {
-  color: rgba(250, 247, 242, 0.72);
+  color: rgba(248, 250, 252, 0.72);
 }
 
 .button-primary,
@@ -329,7 +329,7 @@ input {
 }
 
 .step-number {
-  color: rgba(27, 58, 47, 0.12);
+  color: rgba(13, 107, 94, 0.12);
   font-size: 3rem;
   font-weight: 700;
   letter-spacing: -0.06em;
@@ -356,7 +356,7 @@ input {
 .cta-copy {
   max-width: 520px;
   margin: 0 auto 40px;
-  color: rgba(250, 247, 242, 0.68);
+  color: rgba(248, 250, 252, 0.68);
 }
 
 .privacy-article {
