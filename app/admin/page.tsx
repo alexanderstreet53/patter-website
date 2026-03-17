@@ -533,7 +533,7 @@ export default function AdminPage() {
                               </div>
                             ) : (
                               <>
-                                <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: -1, color: on ? REV_COLORS[key] : 'var(--muted)' }}>
+                                <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: -1, color: on ? REV_COLORS[key as keyof typeof REV_COLORS] : 'var(--muted)' }}>
                                   {on ? fmtGbp(revVal) : '—'}
                                 </div>
                                 <span style={{ fontSize: 11, color: 'var(--muted)', fontWeight: 600 }}>/mo</span>
