@@ -460,7 +460,7 @@ export default function AdminPage() {
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" />
                   <XAxis dataKey="mau" tick={{ fontSize: 12 }} />
                   <YAxis tickFormatter={v => `£${v}`} tick={{ fontSize: 11 }} />
-                  <Tooltip formatter={(v: number) => [`£${v.toFixed(0)}`, '']} />
+                  <Tooltip formatter={(v) => [`£${Number(v ?? 0).toFixed(0)}`, '']} />
                   <Legend />
                   {(Object.keys(COST_COLORS) as (keyof typeof COST_COLORS)[]).map(key =>
                     (key !== 'tiles' || !useCarto) && (
@@ -607,7 +607,7 @@ export default function AdminPage() {
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" />
                   <XAxis dataKey="mau" tick={{ fontSize: 12 }} />
                   <YAxis tickFormatter={v => `£${v}`} tick={{ fontSize: 11 }} />
-                  <Tooltip formatter={(v: number) => [`£${v.toFixed(0)}`, '']} />
+                  <Tooltip formatter={(v) => [`£${Number(v ?? 0).toFixed(0)}`, '']} />
                   <Legend />
                   {(Object.keys(REV_COLORS) as (keyof typeof REV_COLORS)[]).map(key =>
                     streams[key] && (
@@ -637,7 +637,7 @@ export default function AdminPage() {
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" />
                   <XAxis dataKey="mau" tick={{ fontSize: 12 }} />
                   <YAxis tickFormatter={v => `£${v}`} tick={{ fontSize: 11 }} />
-                  <Tooltip formatter={(v: number) => [`£${v.toFixed(0)}`, '']} />
+                  <Tooltip formatter={(v) => [`£${Number(v ?? 0).toFixed(0)}`, '']} />
                   <Legend />
                   <Area type="monotone" dataKey="totalRev" name="Total Revenue" stackId={undefined}
                     stroke="#10B981" fill="#10B981" fillOpacity={0.15} strokeWidth={2.5} />
